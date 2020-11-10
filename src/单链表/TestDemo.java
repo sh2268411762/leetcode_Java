@@ -29,17 +29,32 @@ public class TestDemo
         System.out.println(myLinkedList.contains(123));
         myLinkedList.display();
 
-        myLinkedList.addLast(77777);
-        myLinkedList.addLast(77777);
-        myLinkedList.addLast(77777);
-        myLinkedList.addLast(77777);
-        myLinkedList.addLast(77777);
+        myLinkedList.reverseList();
         myLinkedList.display();
-        myLinkedList.removeAllKey(77777);
-        myLinkedList.display();
-        myLinkedList.removeAllKey(7);
-        myLinkedList.display();
-        myLinkedList.removeAllKey(2);
-        myLinkedList.display();
+
+//        myLinkedList.addLast(77777);
+//        myLinkedList.addLast(77777);
+//        myLinkedList.addLast(77777);
+//        myLinkedList.addLast(77777);
+//        myLinkedList.addLast(77777);
+//        myLinkedList.display();
+//        myLinkedList.removeAllKey(77777);
+//        myLinkedList.display();
+//        myLinkedList.removeAllKey(7);
+//        myLinkedList.display();
+//        myLinkedList.removeAllKey(2);
+//        myLinkedList.display();
+
+//        System.out.println(myLinkedList.head.next);
+//        System.out.println(myLinkedList.head);
+//        System.out.println(myLinkedList.searchPrevKey(2));
+//        System.out.println(myLinkedList.searchPrevKey(3));
+//        System.out.println(myLinkedList.searchPrevKey(4));
+//        System.out.println(myLinkedList.searchPrevKey(9));
+//
+//        System.out.println("\n" + myLinkedList.contains(3));
+//        System.out.println(myLinkedList.contains(6));
+//        System.out.println(myLinkedList.contains(100));
+
     }
 }

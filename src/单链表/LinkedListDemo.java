@@ -1,6 +1,7 @@
 package 单链表;
 
 
+
 class Node
 {
     public int data;
@@ -125,23 +126,32 @@ public class LinkedListDemo
         Node cur = this.head;
         while(cur != null)
         {
-            System.out.print(cur.data + " ");
+            System.out.print(cur.data + " -> ");
             cur = cur.next;
         }
-        System.out.println();
+        System.out.println("NULL");
     }
 
     //按关键字查找
     public Node searchPrevKey(int key)
     {
-        Node cur = this.head;
-        while(cur.next != null)
+        if(head.data == key)
         {
-            if(cur.next.data == key)
+            return head;
+        }
+        Node cur = this.head.next;
+        while(cur != null && cur.next != null)
+        {
+            if(cur.data == key)
             {
                 return cur;
             }
             cur = cur.next;
+        }
+        assert cur != null;
+        if(cur.data == key)
+        {
+            return cur;
         }
         return null;
     }
@@ -183,17 +193,30 @@ public class LinkedListDemo
             return;
         }
 
-        if(this.head.data == key)
+        if(this.head.data == key)   //头内data为要删除的，头后移
         {
             head = head.next;
             return;
         }
 
-        Node cur = this.searchPrevKey(key);
-        if(cur != null)
+        //找到节点
+        if(this.contains(key))
         {
-            Node del = cur.next;
-            cur.next = del.next;
+            Node del = this.head.next;
+            Node cur = this.head;
+            while(del.next != null)
+            {
+                if(del.data == key)
+                {
+                    cur.next = del.next;
+                }
+                del = del.next;
+                cur = cur.next;
+            }
+            if(del.data == key)
+            {
+                cur.next = null;
+            }
         }
         else
         {
@@ -202,4 +225,44 @@ public class LinkedListDemo
 
     }
 
+    //清空
+    public void clear()
+    {
+        this.head = null;
+    }
+
+    //逆置
+    public void reverseList()
+    {
+        //头插法
+//        Node cur = this.head;
+//        Node prev = null;
+//
+//        while(cur != null)
+//        {
+//            Node temp = cur.next;
+//            cur.next = prev;
+//            prev = cur;
+//            cur = temp;
+//        }
+//        this.head = prev;
+
+
+
+        //尾插法
+        Node cur = this.head;
+        Node prev = null;
+
+        while(cur != null)
+        {
+            Node temp = cur.next;
+            if(temp == null)
+            {
+                this.head = cur;
+            }
+            cur.next = prev;
+            prev = cur;
+            cur = temp;
+        }
+    }
 }
